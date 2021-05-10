@@ -20,10 +20,12 @@ from nltk import sent_tokenize
 from preprocessing import Preprocessing
 prepro = Preprocessing()
 
+#nog doen: telegraaf & volkskrant
+
 os.chdir('D:/Newsdata')
 print("Current Working Directory " , os.getcwd())
 
-f = open('ad (print).json', 'r')
+f = open('nrc (print).json', 'r')
 print('file opened')
 
 nnotext = 0
@@ -43,7 +45,7 @@ for line in f:
             counter += 1
             tokens = prepro.tokenize(sentences) #list of strings per sentence
             #print('tokens type =', type(tokens))
-            with open("ad20102018.txt", 'a') as newfile:
+            with open("nrc20102018.txt", 'a') as newfile:
                 for sentence in tokens:
                     ssentence = sentence + '\n'
                     try:
@@ -54,7 +56,7 @@ for line in f:
                 #json.dump(tokens, newfile)
                 anytext += 1
             if counter % 5 == 0:
-                print(str(counter) + "/407847")
+                print(str(counter) + "/311174")
         else:
             nnotext += 1
     
